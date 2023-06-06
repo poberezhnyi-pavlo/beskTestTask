@@ -6,7 +6,7 @@ namespace App\Exceptions;
 
 use Exception;
 
-class LoginWrongException extends Exception
+class LoginWrongException extends CustomException
 {
     private const MESSAGE = 'Wrong credential';
     private const CODE = 401;

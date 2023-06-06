@@ -17,5 +17,6 @@ final class UserService
     public function grantModerator(User $user): void
     {
         $user->type = UserType::MODERATOR;
+        $user->save();
     }
 }
