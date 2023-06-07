@@ -2,13 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Moderator;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Contracts\Auth\Authenticatable;
 
-abstract class BaseController extends Controller
+abstract class BaseProductController extends Controller
 {
     protected function getAuthUser(): Authenticatable|User
     {

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Moderator;
 
 use App\DataTransferObjects\ProductDTO;
+use App\Http\Controllers\BaseProductController;
 use App\Http\Requests\Product\StoreRequest;
 use App\Http\Requests\Product\UpdateRequest;
 use App\Http\Resources\ProductCollection;
@@ -13,7 +14,7 @@ use Illuminate\Http\JsonResponse;
 use OpenApi\Annotations as OA;
 use Symfony\Component\HttpFoundation\Response;
 
-final class ProductController extends BaseController
+final class ProductController extends BaseProductController
 {
     public function __construct(readonly private ProductService $productService)
     {

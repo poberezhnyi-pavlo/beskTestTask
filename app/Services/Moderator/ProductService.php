@@ -6,6 +6,7 @@ namespace App\Services\Moderator;
 
 use App\DataTransferObjects\ProductDTO;
 use App\Enums\Currency;
+use App\Jobs\SendNotification;
 use App\Models\Product;
 use App\Models\User;
 use App\Services\CurrencyInterface;
@@ -68,5 +69,10 @@ final class ProductService
     public function delete(Product $product): void
     {
         $product->delete();
+    }
+
+    public function buy(Product $product, User $user): void
+    {
+        SendNotification::dispatch($product, $user);
     }
 }

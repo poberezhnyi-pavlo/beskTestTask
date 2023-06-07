@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Virtual\Resources;
 
+use App\Virtual\Models\Product;
 use App\Virtual\Models\Token;
 use OpenApi\Annotations as OA;
 
@@ -23,7 +24,7 @@ class ProductResource
      *     title="data",
      *     description="Data wrapper"
      * )
-     * @var Token[]
+     * @var Product[]
      */
     private array $data;
 }

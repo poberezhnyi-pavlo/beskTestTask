@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Client\ProductController as ClientProductControllerAlias;
 use App\Http\Controllers\Moderator\ProductController as ModeratorProductController;
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Support\Facades\Route;
@@ -24,4 +25,12 @@ Route::middleware('auth:sanctum')->group(function() {
             Route::apiResource('products', ModeratorProductController::class);
         })
     ;
+
+    Route::controller(ClientProductControllerAlias::class)
+        ->prefix('client')
+        ->group(function() {
+            Route::get('/products', 'index');
+            Route::get('/products/{product}', 'show');
+            Route::post('/products/{product}', 'buy');
+        });
 });
